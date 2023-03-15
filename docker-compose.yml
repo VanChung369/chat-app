@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: chat-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      -  ${REACT_APP_PORT:-3001}:5173
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true    

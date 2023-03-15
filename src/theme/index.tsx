@@ -35,7 +35,7 @@ export default function ThemeProvider({ children }: any) {
   const theme = createTheme(themeOptions);
 
   theme.components = componentsOverride(theme);
-  console.log(theme.components);
+
   return (
     <StyledEngineProvider injectFirst>
       <MUIThemeProvider theme={theme}>

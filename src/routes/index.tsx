@@ -14,7 +14,7 @@ const Loadable = (Component: any) => (props: any) => {
 
 const Dashboard = Loadable(lazy(() => import('../pages/dashboard')));
 
-const Page404 = Loadable(lazy(() => import('../pages/Page404')));
+const Page404 = Loadable(lazy(() => import('../pages/404')));
 
 export default function Router() {
   return useRoutes([

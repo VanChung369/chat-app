@@ -1,9 +1,12 @@
 import React, { lazy, Suspense } from 'react';
-
-const AppAvatar = lazy(() => import('@/components/Avatar'));
+import Chats from '../chats';
 
 const Dashboard = () => {
-  return <Suspense fallback="loading ..."></Suspense>;
+  return (
+    <Suspense fallback="loading ...">
+      <Chats />
+    </Suspense>
+  );
 };
 
 export default Dashboard;

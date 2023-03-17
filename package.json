@@ -23,6 +23,8 @@
     "@testing-library/user-event": "^14.4.3",
     "emoji-mart": "^5.5.2",
     "framer-motion": "^10.3.2",
+    "i18next": "^22.4.11",
+    "i18next-browser-languagedetector": "^7.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

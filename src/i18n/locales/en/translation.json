@@ -1,0 +1,11 @@
+{
+  "dashboard": {
+    "txt_chats": "Chats"
+  },
+  "chats": {
+    "txt_placeholder_search": "Search ....",
+    "txt_archived": "Archived",
+    "txt_pinned": "Pinned",
+    "txt_all_chats": "All Chats"
+  }
+}

@@ -6,11 +6,11 @@ import { Box } from '@mui/material';
 const RootStyle = styled('div')(() => ({
   flexGrow: 1,
   height: '100%',
-  // overflow: "scroll",
+  // overflow: 'scroll',
 }));
 
 const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
-  // maxHeight: '100%',
+  maxHeight: '100%',
   '& .simplebar-scrollbar': {
     '&:before': {
       backgroundColor: alpha(theme.palette.grey[600], 0.48),
@@ -20,6 +20,7 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
     },
   },
   '& .simplebar-track.simplebar-vertical': {
+    top: 'unset',
     width: 10,
   },
   '& .simplebar-track.simplebar-horizontal .simplebar-scrollbar': {
@@ -28,9 +29,9 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
   '& .simplebar-mask': {
     zIndex: 'inherit',
   },
-  '& .simplebar-placeholder': {
-    height: '0 !important',
-  },
+  // '& .simplebar-placeholder': {
+  //   height: '0 !important',
+  // },
 }));
 
 Scrollbar.propTypes = {

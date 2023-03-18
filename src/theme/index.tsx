@@ -1,26 +1,20 @@
-import PropTypes from "prop-types";
-import { useMemo } from "react";
-import { CssBaseline } from "@mui/material";
-import {
-  createTheme,
-  ThemeProvider as MUIThemeProvider,
-  StyledEngineProvider,
-} from "@mui/material/styles";
-import useSettings from "../hooks/useSettings";
-import palette from "./palette";
-import typography from "./typography";
-import breakpoints from "./breakpoints";
-import shadows, { customShadows } from "./shadows";
-import componentsOverride from "./overrides";
+import { ReactNode, useMemo } from 'react';
+import { CssBaseline } from '@mui/material';
+import { createTheme, ThemeProvider as MUIThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import useSettings from '../hooks/useSettings';
+import palette from './palette';
+import typography from './typography';
+import breakpoints from './breakpoints';
+import shadows, { customShadows } from './shadows';
+import componentsOverride from './overrides';
 
-ThemeProvider.propTypes = {
-  children: PropTypes.node,
+type themeProviderProps = {
+  children?: ReactNode;
 };
-
-export default function ThemeProvider({ children }: any) {
+export default function ThemeProvider({ children }: themeProviderProps) {
   const { themeMode, themeDirection } = useSettings();
 
-  const isLight = themeMode === "light";
+  const isLight = themeMode === 'light';
 
   const themeOptions: any = {
     palette: isLight ? palette.light : palette.dark,

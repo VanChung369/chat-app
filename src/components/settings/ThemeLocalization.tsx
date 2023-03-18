@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
 import { ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 import useLocales from '../../hooks/useLocales';
+import { ReactNode } from 'react';
 
-ThemeLocalization.propTypes = {
-  children: PropTypes.node.isRequired,
+type themeLocalizationProps = {
+  children: ReactNode;
 };
 
-export default function ThemeLocalization({ children }: any) {
+export default function ThemeLocalization({ children }: themeLocalizationProps) {
   const defaultTheme = useTheme();
 
   const { currentLang } = useLocales();

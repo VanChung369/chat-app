@@ -1,22 +1,16 @@
-import PropTypes from "prop-types";
-import { useMemo } from "react";
+import { ReactNode, useMemo } from 'react';
 
-import {
-  alpha,
-  ThemeProvider,
-  createTheme,
-  useTheme,
-} from "@mui/material/styles";
+import { alpha, ThemeProvider, createTheme, useTheme } from '@mui/material/styles';
 
-import useSettings from "../../hooks/useSettings";
+import useSettings from '../../hooks/useSettings';
 
-import componentsOverride from "../../theme/overrides";
+import componentsOverride from '../../theme/overrides';
 
-ThemeColorPresets.propTypes = {
-  children: PropTypes.node,
+type themeColorPresetsProps = {
+  children?: ReactNode;
 };
 
-export default function ThemeColorPresets({ children }: any) {
+export default function ThemeColorPresets({ children }: themeColorPresetsProps) {
   const defaultTheme: any = useTheme();
 
   const { setColor } = useSettings();
@@ -33,7 +27,7 @@ export default function ThemeColorPresets({ children }: any) {
         primary: `0 8px 16px 0 ${alpha(setColor.main, 0.24)}`,
       },
     }),
-    [setColor, defaultTheme]
+    [setColor, defaultTheme],
   );
 
   const theme = createTheme(themeOptions);

@@ -1,24 +1,17 @@
-import PropTypes from "prop-types";
-import { m, AnimatePresence } from "framer-motion";
-import { Dialog, Box, Paper } from "@mui/material";
-import { varFade } from "./variants";
+import { m, AnimatePresence } from 'framer-motion';
+import { Dialog, Box, Paper } from '@mui/material';
+import { varFade } from './variants';
+import { ReactNode } from 'react';
 
-DialogAnimate.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClose: PropTypes.func,
-  open: PropTypes.bool.isRequired,
-  sx: PropTypes.object,
-  variants: PropTypes.object,
+type DialogAnimateProps = {
+  children: ReactNode;
+  onClose: (e: any) => void;
+  open: boolean;
+  variants?: object;
+  sx?: object;
 };
 
-export default function DialogAnimate({
-  open = false,
-  variants,
-  onClose,
-  children,
-  sx,
-  ...other
-}: any) {
+export default function DialogAnimate({ open = false, variants, onClose, children, sx, ...other }: DialogAnimateProps) {
   return (
     <AnimatePresence>
       {open && (
@@ -35,20 +28,17 @@ export default function DialogAnimate({
                   distance: 120,
                   durationIn: 0.32,
                   durationOut: 0.24,
-                  easeIn: "easeInOut",
+                  easeIn: 'easeInOut',
                 }).inUp)}
               sx={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              <Box
-                onClick={onClose}
-                sx={{ width: "100%", height: "100%", position: "fixed" }}
-              />
+              <Box onClick={onClose} sx={{ width: '100%', height: '100%', position: 'fixed' }} />
               <Paper sx={sx} {...props}>
                 {props.children}
               </Paper>

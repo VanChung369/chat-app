@@ -1,31 +1,20 @@
-import PropTypes from "prop-types";
-import { m } from "framer-motion";
-import { forwardRef } from "react";
-import { Box, IconButton } from "@mui/material";
+import PropTypes from 'prop-types';
+import { m } from 'framer-motion';
+import { forwardRef, ReactNode } from 'react';
+import { Box, IconButton } from '@mui/material';
 
-const IconButtonAnimate = forwardRef(
-  ({ children, size = "medium", ...other }: any, ref: any) => (
-    <AnimateWrap size={size}>
-      <IconButton size={size} ref={ref} {...other}>
-        {children}
-      </IconButton>
-    </AnimateWrap>
-  )
-);
+const IconButtonAnimate = forwardRef(({ children, size = 'medium', ...other }: any, ref: any) => (
+  <AnimateWrap size={size}>
+    <IconButton size={size} ref={ref} {...other}>
+      {children}
+    </IconButton>
+  </AnimateWrap>
+));
 
 IconButtonAnimate.propTypes = {
   children: PropTypes.node.isRequired,
-  color: PropTypes.oneOf([
-    "inherit",
-    "default",
-    "primary",
-    "secondary",
-    "info",
-    "success",
-    "warning",
-    "error",
-  ]),
-  size: PropTypes.oneOf(["small", "medium", "large"]),
+  color: PropTypes.oneOf(['inherit', 'default', 'primary', 'secondary', 'info', 'success', 'warning', 'error']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
 };
 
 export default IconButtonAnimate;
@@ -45,14 +34,14 @@ const varLarge = {
   tap: { scale: 0.99 },
 };
 
-AnimateWrap.propTypes = {
-  children: PropTypes.node.isRequired,
-  size: PropTypes.oneOf(["small", "medium", "large"]),
+type animateWrapProps = {
+  children: ReactNode;
+  size: 'small' | 'medium' | 'large';
 };
 
-function AnimateWrap({ size, children }: any) {
-  const isSmall = size === "small";
-  const isLarge = size === "large";
+function AnimateWrap({ size, children }: animateWrapProps) {
+  const isSmall = size === 'small';
+  const isLarge = size === 'large';
 
   return (
     <Box
@@ -61,7 +50,7 @@ function AnimateWrap({ size, children }: any) {
       whileHover="hover"
       variants={(isSmall && varSmall) || (isLarge && varLarge) || varMedium}
       sx={{
-        display: "inline-flex",
+        display: 'inline-flex',
       }}
     >
       {children}

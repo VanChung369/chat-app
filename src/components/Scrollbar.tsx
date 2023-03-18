@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
 import SimpleBarReact from 'simplebar-react';
 import { alpha, styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
+import { ReactNode } from 'react';
 
 const RootStyle = styled('div')(() => ({
   flexGrow: 1,
@@ -34,12 +34,12 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
   // },
 }));
 
-Scrollbar.propTypes = {
-  children: PropTypes.node.isRequired,
-  sx: PropTypes.object,
+type scrollbarProps = {
+  children: ReactNode;
+  sx: object;
 };
 
-export default function Scrollbar({ children, sx, ...other }: any) {
+export default function Scrollbar({ children, sx, ...other }: scrollbarProps) {
   const userAgent = typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;
 
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
@@ -54,7 +54,7 @@ export default function Scrollbar({ children, sx, ...other }: any) {
 
   return (
     <RootStyle>
-      <SimpleBarStyle timeout={500} clickOnTrack={false} sx={sx} {...other}>
+      <SimpleBarStyle clickOnTrack={false} sx={sx} {...other}>
         {children}
       </SimpleBarStyle>
     </RootStyle>

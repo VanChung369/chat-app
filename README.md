@@ -2,7 +2,7 @@
 
 First, run the development server:
 
-`````````bash
+``````````bash
 docker-compose up -d
 
 Open [http://localhost:[PORT]](http://localhost:[PORT]) with your browser to see the result.
@@ -18,4 +18,6 @@ https://www.figma.com/file/cX28GcBPy6dz7NvyBYUaJy/CM-Chat-App?node-id=0%3A1
 ````````youtube
 @CodingMonk
 
-`````````
+`````````bash
+make sonar-scan
+``````````

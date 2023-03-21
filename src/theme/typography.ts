@@ -1,10 +1,10 @@
 import { pxToRem, responsiveFontSizes } from '../utils/getFontValue';
 
-const FONT_PRIMARY = 'Manrope, Public Sans, sans-serif';
+const FONT_PRIMARY = 'Manrope';
 
 const typography = {
   fontFamily: FONT_PRIMARY,
-  fontWeightRegular: 400,
+  fontWeightRegular: 500,
   fontWeightMedium: 600,
   fontWeightBold: 700,
   h1: {

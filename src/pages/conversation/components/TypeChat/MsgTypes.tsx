@@ -1,10 +1,49 @@
+import { Message_options } from '@/mock';
 import truncateString from '@/utils/truncate';
-import { Box, IconButton, Stack, Typography, useTheme } from '@mui/material';
+import { Box, IconButton, Menu, MenuItem, Stack, Typography, useTheme } from '@mui/material';
 import { alpha, styled } from '@mui/material/styles';
-import { DownloadSimple, Image } from 'phosphor-react';
-import React from 'react';
+import { DotsThreeVertical, DownloadSimple, Image } from 'phosphor-react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const MessageOption = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <>
+      <DotsThreeVertical
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+        size={20}
+      />
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <Stack spacing={1} px={1}>
+          {Message_options.map((el) => (
+            <MenuItem onClick={handleClose}>{el.title}</MenuItem>
+          ))}
+        </Stack>
+      </Menu>
+    </>
+  );
+};
 const TextMsg = ({ el }: any) => {
   const theme = useTheme();
   return (
@@ -22,6 +61,7 @@ const TextMsg = ({ el }: any) => {
           {el.message}
         </Typography>
       </Box>
+      <MessageOption />
       {/* {menu && <MessageOption />} */}
     </Stack>
   );
@@ -47,6 +87,7 @@ const MediaMsg = ({ el }: any) => {
           </Typography>
         </Stack>
       </Box>
+      <MessageOption />
       {/* {menu && <MessageOption />} */}
     </Stack>
   );
@@ -86,6 +127,7 @@ const DocMsg = ({ el }: any) => {
           </Typography>
         </Stack>
       </Box>
+      <MessageOption />
       {/* {menu && <MessageOption />} */}
     </Stack>
   );
@@ -134,6 +176,7 @@ const LinkMsg = ({ el }: any) => {
           </Typography>
         </Stack>
       </Box>
+      <MessageOption />
       {/* {menu && <MessageOption />} */}
     </Stack>
   );
@@ -172,6 +215,7 @@ const ReplyMsg = ({ el }: any) => {
           </Typography>
         </Stack>
       </Box>
+      <MessageOption />
       {/* {menu && <MessageOption />} */}
     </Stack>
   );

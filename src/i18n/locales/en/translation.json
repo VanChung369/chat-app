@@ -10,5 +10,15 @@
   },
   "conversation": {
     "txt_write_a_message": "Write a message ..."
+  },
+  "contact": {
+    "txt_contact_info": "Contact Info",
+    "txt_voice": "Voice",
+    "txt_audio": "Audio",
+    "txt_about": "About",
+    "txt_text": "Hi there, I am using",
+    "txt_media": "Media, links and docs",
+    "txt_starred_messages": "Starred Messages",
+    "txt_mute_notifications": "Mute Notifications"
   }
 }

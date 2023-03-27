@@ -3,6 +3,8 @@ import { faker } from '@faker-js/faker';
 import { Box, Stack, Avatar, Badge, Typography, IconButton, Divider, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { CaretDown, MagnifyingGlass, Phone, VideoCamera } from 'phosphor-react';
+import { toggleSidebar, updateSidebar } from '@/redux/sidebar/slice';
+import { useDispatch } from 'react-redux';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -35,6 +37,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 function Header() {
   const theme = useTheme();
+  const dispatch = useDispatch();
+
   return (
     <Box
       p={2}
@@ -51,7 +55,13 @@ function Header() {
         justifyContent={'space-between'}
         sx={{ width: '100%', height: '100%' }}
       >
-        <Stack direction={'row'} spacing={2}>
+        <Stack
+          onClick={() => {
+            dispatch(toggleSidebar());
+          }}
+          direction={'row'}
+          spacing={2}
+        >
           <Box>
             <StyledBadge overlap="circular" anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} variant="dot">
               <Avatar alt={faker.name.fullName()} src={faker.image.avatar()} />
